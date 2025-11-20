@@ -108,4 +108,23 @@ coords = [(1,2), (3,4)]  # Tuple in collections
 
 ## Data Structures and Algorithms
 
+| Data Structure              | Operation              | Time Complexity |
+|-----------------------------|------------------------|------------------|
+| **Array**                   | Access                 | O(1)            |
+|                             | Search                 | O(n)            |
+|                             | Insert                 | O(n)            |
+|                             | Delete                 | O(n)            |
+| **HashMap / HashSet**       | Search                 | O(1)            |
+|                             | Insert                 | O(1)            |
+|                             | Delete                 | O(1)            |
+| **Linked List**             | Search                 | O(n)            |
+|                             | Insert (given node)    | O(1)            |
+|                             | Delete (given node)    | O(1)            |
+| **Stack / Queue**           | Push / Enqueue         | O(1)            |
+|                             | Pop / Dequeue          | O(1)            |
+| **Binary Tree (Balanced)**  | Search                 | O(log n)        |
+|                             | Insert                 | O(log n)        |
+|                             | Delete                 | O(log n)        |
+
+
 
