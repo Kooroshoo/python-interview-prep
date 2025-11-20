@@ -127,4 +127,68 @@ coords = [(1,2), (3,4)]  # Tuple in collections
 |                             | Delete                 | O(log n)        |
 
 
+#### Common Patterns
+-   Array / String / Linked List traversal
+-   Hashing basics (set)
+-   Two Pointers
+-   Sliding Window
+-   Frequency map
+-   Prefix sums
+-   Binary search
+-   DFS / BFS
+
+#### Cheatsheet
+
+``` python
+# Array / String traversal
+for x in arr:
+    ...
+
+# Linked List Traversal
+node = head
+while node:
+    ...
+    node = node.next
+
+# Hashing basics (set)
+seen = set()
+if x in seen:
+    ...
+seen.add(x)
+
+# Two pointers (for sorted arrays / palindromes)
+l, r = 0, len(arr)-1
+while l < r:
+    ...
+
+# Sliding window (longest / shortest substring/subarray)
+l = 0
+for r in range(len(s)):
+    ...
+    while window_invalid():
+        l += 1
+
+# Frequency map (hash map)
+freq = {}
+for x in arr:
+    freq[x] = freq.get(x, 0) + 1
+
+# Prefix sums (range sum queries)
+prefix = [0] * (n+1)
+for i in range(n):
+    prefix[i+1] = prefix[i] + arr[i]
+# sum(l..r) = prefix[r+1] - prefix[l]
+
+# Binary search (on sorted arrays or answer space)
+l, r = 0, n-1
+while l <= r:
+    mid = (l+r)//2
+    if good(mid):
+        r = mid - 1
+    else:
+        l = mid + 1
+
+# BFS / DFS (graph / tree traversal)
+
+```
 
