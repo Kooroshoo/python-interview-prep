@@ -68,6 +68,7 @@ d.get('key', 0)       # safe access with default
 d['key'] = 3          # add/update key
 d.pop('key', None)    # remove key safely
 d.keys()              # view all keys
+d.values()            # view all values
 d.items()             # view all key-value pairs
 
 # Notes
