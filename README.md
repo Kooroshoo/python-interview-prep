@@ -173,6 +173,14 @@ freq = {}
 for x in arr:
     freq[x] = freq.get(x, 0) + 1
 
+# complement pattern (hash map)
+index_map = {}   # value -> index
+for i, x in enumerate(arr):
+    comp = target - x
+    if comp in index_map:
+        return [index_map[comp], i]
+    ...
+
 # Prefix sums (range sum queries)
 prefix = [0] * (n+1)
 for i in range(n):
