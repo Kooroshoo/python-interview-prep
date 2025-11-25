@@ -128,67 +128,87 @@ coords = [(1,2), (3,4)]  # Tuple in collections
 |                             | Delete                 | O(log n)        |
 
 
-#### Common Patterns
--   Array / String / Linked List traversal
--   Hashing basics (set)
--   Two Pointers
--   Sliding Window
--   Frequency map
--   Prefix sums
--   Binary search
--   DFS / BFS
+### Common Patterns Cheatsheet Snippets
 
-#### Cheatsheet
-
-``` python
-# Array / String traversal
+### **Array / String Traversal**
+- Iterate through elements
+```python
 for x in arr:
+    # process x
     ...
+```
 
-# Linked List Traversal
+### **Linked List Traversal**
+- Iterate through nodes
+```python
 node = head
 while node:
+    # process node.val
     ...
     node = node.next
+```
 
-# Hashing basics (set)
+### **Hashing Basics (Set / Dict)**
+- Track seen elements or frequency
+```python
+# Set
 seen = set()
 if x in seen:
     ...
 seen.add(x)
 
-# Two pointers (for sorted arrays / palindromes)
-l, r = 0, len(arr)-1
-while l < r:
-    ...
-
-# Sliding window (longest / shortest substring/subarray)
-l = 0
-for r in range(len(s)):
-    ...
-    while window_invalid():
-        l += 1
-
-# Frequency map (hash map)
+# Frequency Map
 freq = {}
 for x in arr:
     freq[x] = freq.get(x, 0) + 1
+```
 
-# complement pattern (hash map)
-index_map = {}   # value -> index
+### **Complement Pattern (Two Sum)**
+- Use hash map for value -> index lookup
+```python
+index_map = {}  # value -> index
 for i, x in enumerate(arr):
     comp = target - x
     if comp in index_map:
         return [index_map[comp], i]
-    ...
+    index_map[x] = i
+```
 
-# Prefix sums (range sum queries)
-prefix = [0] * (n+1)
+### **Two Pointers**
+- For sorted arrays, palindromes, or window problems
+```python
+l, r = 0, len(arr)-1
+while l < r:
+    # process arr[l], arr[r]
+    ...
+    l += 1
+    r -= 1
+```
+
+### **Sliding Window**
+- For longest/shortest substring/subarray problems
+```python
+l = 0
+for r in range(len(s)):
+    # add s[r] to window
+    ...
+    while window_invalid():
+        # remove s[l] from window
+        l += 1
+```
+
+### **Prefix Sums**
+- Compute range sums efficiently
+```python
+prefix = [0]*(n+1)
 for i in range(n):
     prefix[i+1] = prefix[i] + arr[i]
-# sum(l..r) = prefix[r+1] - prefix[l]
+# sum of range l..r = prefix[r+1] - prefix[l]
+```
 
-# Binary search (on sorted arrays or answer space)
+### **Binary Search**
+- Standard search template
+```python
 l, r = 0, n-1
 while l <= r:
     mid = (l+r)//2
@@ -196,10 +216,30 @@ while l <= r:
         r = mid - 1
     else:
         l = mid + 1
-
-# BFS / DFS (graph / tree traversal)
-
 ```
+
+### **DFS / BFS**
+- Graph or tree traversal
+```python
+# BFS
+from collections import deque
+queue = deque([start])
+visited = set([start])
+while queue:
+    node = queue.popleft()
+    for nei in graph[node]:
+        if nei not in visited:
+            visited.add(nei)
+            queue.append(nei)
+
+# DFS
+def dfs(node):
+    visited.add(node)
+    for nei in graph[node]:
+        if nei not in visited:
+            dfs(nei)
+```
+
 
 ## Design Patterns
 
